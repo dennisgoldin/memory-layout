@@ -7,6 +7,31 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
+input {
+  width: 100px;
+  height: 100px;
+  display: none;
+}
+
+.card {
+  width: 150px;
+  height: 150px;
+  background: steelblue;
+  display: block;
+  border-radius: 5px;
+  transition: background 1s, -webkit-transform 1s;
+}
+
+input:checked +.card {
+  background: lightcoral;
+  -webkit-transform: rotateY(180deg);
+}
+
+.box {
+  display: inline-block;
+  /* padding: 1px; */
+}
+
 body {
   font-family: Orbitron, serif;
   color: #EEE;
@@ -26,9 +51,10 @@ h3 {
   text-align: center;
 }
 
-/* section {
-  text-align: center;
-} */
+section {
+  /* display: inline-block; */
+  padding: 30px 35px 30px 39px;
+}
 
 a {
   text-decoration: none;
@@ -77,7 +103,7 @@ border: 1px dsahed #FFF; */
 }
 
 header {
-  border: 1px dashed #FFFFFF;
+/* border: 1px dashed #FFF; */
   padding-top: 100px:
   width: 98%;
 }
