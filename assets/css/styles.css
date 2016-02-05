@@ -10,23 +10,46 @@
 body {
   font-family: Orbitron, serif;
   color: #EEE;
-  background-color: rgb(71, 165, 186);
-  text-align: center;
+  /* text-align: center; */
 }
 
 h1 {
   font-size: 6em;
+  text-align: center;
 }
 h3 {
   font-size: 2em;
-}
-
-section {
   text-align: center;
 }
 
-/* Button */
-.btn {
+/* section {
+  text-align: center;
+} */
+
+a {
+  text-decoration: none;
+  color: #EEE;
+  text-align: center;
+}
+
+.hearts{
+
+}
+
+.time {
+
+}
+
+.game_bg {
+  background-color: rgb(62, 78, 186);
+}
+
+.new_game_bg {
+  background-color: rgb(71, 165, 186);
+  text-align: center;
+}
+
+.button {
   padding: 1em 2em;
   text-align: center;
   background: rgb(71, 165, 186);
@@ -34,17 +57,21 @@ section {
   color: #FFF;
   text-decoration: none;
   width: 30%;
-  margin-left: 33%;
+  margin-left: 32%;
 }
 
- a {
-  text-decoration: none;
-  color: #EEE;
-  text-align: center;
-}
-
- .btn:hover {
+ .button:hover {
    text-decoration: none;
    color: rgb(71, 165, 186);
    background-color: #EEE;
  }
+
+#easy {
+  webkit-transform: perspective(200px) rotateY(-15deg);
+  transform: perspective(200px) rotateY(-15deg);
+}
+
+#hard {
+  webkit-transform: perspective(200px) rotateY(15deg);
+  transform: perspective(200px) rotateY(15deg);
+}
