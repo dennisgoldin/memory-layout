@@ -32,6 +32,10 @@ input:checked +.card {
   -webkit-transform: rotateY(180deg);
 }
 
+/******************************************************
+    Begin: Icon Formating
+******************************************************/
+
 input:checked +.card .cubes {
   opacity: 1;
   transition-delay: 0.5s;
@@ -39,20 +43,48 @@ input:checked +.card .cubes {
 
 .cubes {
   position: absolute;
-  margin-top: 10px;
+  margin-top: 52px;
   opacity:0;
-  margin-left: 25px;
-  /*text-align: center;*/
-  /*vertical-align: middle;*/
-  /*padding-top:  10px;*/
-  /*padding-right: 10px;*/
-  border: 1px dashed #FFF;
-  /*display: inline-block;*/
+  margin-left: 43px;
+}
+
+input:checked +.card .rocket {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+.rocket {
+  position: absolute;
+  margin-top: 52px;
+  opacity:0;
+  margin-left: 50px;
+}
+
+input:checked +.card .cake {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+.cake {
+  position: absolute;
+  margin-top: 52px;
+  opacity:0;
+  margin-left: 50px;
+}
+
+/******************************************************
+    End: Icon Formating
+******************************************************/
+
+ul {
+  display: inline-block;
+  height: 150px;
+  padding-left: 36px;
+  /*border 1px dashed #FFF; */
 }
 
 ul li {
   display: inline-block;
-  /* padding: 1px; */
 }
 
 .box {
@@ -140,6 +172,10 @@ header {
   padding-top: 100px:
   width: 98%;
 }
+
+/******************************************************
+    ID Selectores
+******************************************************/
 
 #easy {
   webkit-transform: perspective(200px) rotateY(-15deg);
