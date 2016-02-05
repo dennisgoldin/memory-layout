@@ -7,6 +7,11 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
+.no_colapse {
+  width: 900px;
+  margin: 0 auto;
+}
+
 input {
   width: 100px;
   height: 100px;
@@ -17,7 +22,7 @@ input {
   width: 150px;
   height: 150px;
   background: steelblue;
-  display: block;
+  display: inline-block;
   border-radius: 5px;
   transition: background 1s, -webkit-transform 1s;
 }
@@ -27,9 +32,37 @@ input:checked +.card {
   -webkit-transform: rotateY(180deg);
 }
 
-.box {
+input:checked +.card .cubes {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+.cubes {
+  position: absolute;
+  margin-top: 10px;
+  opacity:0;
+  margin-left: 25px;
+  /*text-align: center;*/
+  /*vertical-align: middle;*/
+  /*padding-top:  10px;*/
+  /*padding-right: 10px;*/
+  border: 1px dashed #FFF;
+  /*display: inline-block;*/
+}
+
+ul li {
   display: inline-block;
   /* padding: 1px; */
+}
+
+.box {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+}
+
+.box:hover {
+  box-shadow: 0px 0px 2px 2px #000;
 }
 
 body {
@@ -86,7 +119,7 @@ a {
   border: 3px solid #EEE;
   color: #FFF;
   text-decoration: none;
-  width: 30%;
+  width: 25%;
   margin-left: 32%;
 }
 

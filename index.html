@@ -8,6 +8,9 @@
     <title>Memory Game - Normal Difficulty</title>
   </head>
   <body class="game_bg">
+
+<div class="no_collapse">
+
     <header>
       <h1>Mem<i class="fa fa-lightbulb-o"></i>ry</h1>
       <div class="header_bottom">
@@ -18,36 +21,26 @@
 
     <section>
 
-        <div class="box">
+      <ul>
+        <li class="box">
            <input type="checkbox" id="button1">
-           <label class="card" for="button1"><i class="fa fa-cubes"></i></label>
-        </div>
+           <label class="card" for="button1">
+             <div class="cubes"><i class="fa fa-cubes fa-3x"></i></>
+           </label>
+        </li>
+        <li class="box">
+           <input type="checkbox" id="button2">
+           <label class="card" for="button2">
+             <div class="cubes">
+               <i class="fa fa-cubes fa-2x"></i>
+             </div>
+          </label>
+        </li>
+      </ul>
 
-        <div class="box">
-            <input type="checkbox" id="button2">
-            <label class="card" for="button2"><i class="fa fa-cubes"></i></label>
-        </div>
-
-        <div class="box">
-            <input type="checkbox" id="button3">
-            <label class="card" for="button3"><i class="fa fa-cubes"></i></label>
-        </div>
-
-        <div class="box">
-            <input type="checkbox" id="button4">
-            <label class="card" for="button4"><i class="fa fa-cubes"></i></label>
-        </div>
-
-        <div class="box">
-            <input type="checkbox" id="button5">
-            <label class="card" for="button5"><i class="fa fa-cubes"></i></label>
-        </div>
-
-        <div class="box">
-            <input type="checkbox" id="button6">
-            <label class="card" for="button6"><i class="fa fa-cubes"></i></label>
-        </div>
     </section>
+
+</div>
 
   </body>
   </html>
