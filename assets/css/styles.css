@@ -10,13 +10,17 @@
 body {
   font-family: Orbitron, serif;
   color: #EEE;
-  /* text-align: center; */
+/* border 1px dashed #FFF;
+   text-align: center; */
 }
 
 h1 {
+/* border: 1px dashed #FFF; */
+  padding: 30px 30px 10px 30px;
   font-size: 6em;
   text-align: center;
 }
+
 h3 {
   font-size: 2em;
   text-align: center;
@@ -33,11 +37,11 @@ a {
 }
 
 .hearts{
-
+  float: left;
 }
 
 .time {
-
+  float: right;
 }
 
 .game_bg {
@@ -65,6 +69,18 @@ a {
    color: rgb(71, 165, 186);
    background-color: #EEE;
  }
+
+.header_bottom {
+  padding: 10px 30px 10px 30px;
+/*  width: 99%;
+border: 1px dsahed #FFF; */
+}
+
+header {
+  border: 1px dashed #FFFFFF;
+  padding-top: 100px:
+  width: 98%;
+}
 
 #easy {
   webkit-transform: perspective(200px) rotateY(-15deg);
