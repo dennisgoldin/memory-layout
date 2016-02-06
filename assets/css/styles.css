@@ -8,7 +8,7 @@
 }
 
 .no_colapse {
-  width: 900px;
+  width: 1050px;
   margin: 0 auto;
 }
 
@@ -23,7 +23,7 @@ input {
   height: 150px;
   background: steelblue;
   display: inline-block;
-  border-radius: 5px;
+  border-radius: 4px;
   transition: background 1s, -webkit-transform 1s;
 }
 
@@ -36,36 +36,17 @@ input:checked +.card {
     Begin: Icon Formating
 ******************************************************/
 
-input:checked +.card .cubes {
+/*    Override FontAwesome sizing
+.fa-1x {
+  font-size: 3em !important;
+} */
+
+input:checked +.card .card-icon {
   opacity: 1;
-  transition-delay: 0.5s;
+  transition-delay: 0.25s;
 }
 
-.cubes {
-  position: absolute;
-  margin-top: 52px;
-  opacity:0;
-  margin-left: 43px;
-}
-
-input:checked +.card .rocket {
-  opacity: 1;
-  transition-delay: 0.5s;
-}
-
-.rocket {
-  position: absolute;
-  margin-top: 52px;
-  opacity:0;
-  margin-left: 50px;
-}
-
-input:checked +.card .cake {
-  opacity: 1;
-  transition-delay: 0.5s;
-}
-
-.cake {
+.card-icon {
   position: absolute;
   margin-top: 52px;
   opacity:0;
@@ -80,11 +61,12 @@ ul {
   display: inline-block;
   height: 150px;
   padding-left: 36px;
-  /*border 1px dashed #FFF; */
+  border 1px dashed #FFF;
 }
 
 ul li {
-  display: inline-block;
+  display: block;
+  border 1px dashed #FFF;
 }
 
 .box {
@@ -94,7 +76,8 @@ ul li {
 }
 
 .box:hover {
-  box-shadow: 0px 0px 2px 2px #000;
+  /*box-shadow: inset 0px 0px 10px rgb(0,0,0);*/
+  box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.4);
 }
 
 body {
@@ -118,21 +101,13 @@ h3 {
 
 section {
   /* display: inline-block; */
-  padding: 30px 35px 30px 39px;
+  padding: 30px 35px 30px 25px;
 }
 
 a {
   text-decoration: none;
   color: #EEE;
   text-align: center;
-}
-
-.hearts{
-  float: left;
-}
-
-.time {
-  float: right;
 }
 
 .game_bg {
@@ -144,7 +119,7 @@ a {
   text-align: center;
 }
 
-.button {
+.mode-button {
   padding: 1em 2em;
   text-align: center;
   background: rgb(71, 165, 186);
@@ -155,27 +130,63 @@ a {
   margin-left: 32%;
 }
 
- .button:hover {
+ .mode-button:hover {
    text-decoration: none;
    color: rgb(71, 165, 186);
    background-color: #EEE;
  }
 
+.menu-button {
+  padding: 1em 2em;
+  text-align: center;
+  background: rgb(62, 78, 184);
+  border: 3px solid #EEE;
+  color: #FFF;
+  text-decoration: none;
+  width: 100px;
+  margin-left: 43%;
+}
+
+ .menu-button:hover {
+   text-decoration: none;
+   color: rgb(62, 78, 184);
+   background-color: #EEE;
+ }
+
 .header_bottom {
-  padding: 10px 30px 10px 30px;
-/*  width: 99%;
-border: 1px dsahed #FFF; */
+  padding: 0px;
+  display: inline-block;
+  width: 100%;
+  height: 61px;
+/*border: 1px dashed #FFF;*/
 }
 
 header {
-/* border: 1px dashed #FFF; */
-  padding-top: 100px:
-  width: 98%;
+ /*border: 1px dashed #FFF;*/
+  padding-top: 10px;
+  width: 99%;
 }
 
 /******************************************************
     ID Selectores
 ******************************************************/
+
+#hearts {
+  float: left;
+  height: 40px;
+  padding-top: 20px;
+  padding-left: 30px;
+  /*border: 1px dashed #FFF;*/
+}
+
+#time {
+  float: right;
+  height: 40px;
+  margin-top: -55px;
+  padding-top: 20px;
+  padding-right: 30px;
+  /*border: 1px dashed #FFF;*/
+}
 
 #easy {
   webkit-transform: perspective(200px) rotateY(-15deg);
@@ -185,4 +196,9 @@ header {
 #hard {
   webkit-transform: perspective(200px) rotateY(15deg);
   transform: perspective(200px) rotateY(15deg);
+}
+
+#menu {
+  webkit-transform: perspective(250px) rotateX(40deg);
+  transform: perspective(250px) rotateX(40deg);
 }
