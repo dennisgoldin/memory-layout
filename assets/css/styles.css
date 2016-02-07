@@ -23,12 +23,13 @@ input {
   height: 150px;
   background: steelblue;
   display: inline-block;
-  border-radius: 4px;
+  border-radius: 10px;
   transition: background 1s, -webkit-transform 1s;
 }
 
 input:checked +.card {
-  background: lightcoral;
+  background: steelblue;
+  /*background: lightcoral;*/
   -webkit-transform: rotateY(180deg);
 }
 
@@ -76,7 +77,9 @@ ul li {
 }
 
 .box:hover {
-  box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.4);
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px 3px rgba(255,255,255,0.6);
 }
 
 body {
@@ -163,6 +166,15 @@ header {
  /*border: 1px dashed #FFF;*/
   padding-top: 10px;
   width: 99%;
+}
+
+footer {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 30px;
+  /*border: 1px dashed #FFF;*/
 }
 
 /******************************************************
