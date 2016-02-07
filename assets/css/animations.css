@@ -1,0 +1,84 @@
+/*============================================
+CSS3 ANIMATION CHEAT SHEET
+==============================================
+
+Made by Justin Aguilar
+
+www.justinaguilar.com/animations/
+
+Questions, comments, concerns, love letters:
+justin@justinaguilar.com
+============================================*/
+
+
+/*============================================
+ 	Modified by Dennis Goldin
+
+	www.theironyard.com
+	dennis.goldin@gmail.com
+
+	Notes:
+
+	Remove all animations except 'tossing'.
+	Modify tossing to include an animated color
+	change.  Rename CSS class to match naming
+	conventions.
+
+============================================*/
+
+/*============================================
+bgcolor change & tossing animation
+============================================*/
+
+.menu-effects {
+	animation-name: menu-effects;
+	-webkit-animation-name: menu-effects;
+
+	animation-duration: 6.0;
+	-webkit-animation-duration: 6.0s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes menu-effects {
+	0% {
+		transform: rotate(-1deg);
+		background-color: rgb(46, 124, 143);
+	}
+	33% {
+		transform: rotate(1deg);
+	}
+	50% {
+		transform: rotate(-1deg);
+		background-color: rgb(71, 165, 186);
+	}
+	66% {
+		transform: rotate(1deg);
+	}
+	100% {
+		transform: rotate(-1deg);
+		background-color: rgb(46, 124, 143);
+	}
+}
+
+@-webkit-keyframes menu-effects {
+	0% {
+		-webkit-transform: rotate(-1deg);
+		background-color: rgb(46, 124, 143);
+	}
+	33% {
+		-webkit-transform: rotate(1deg);
+	}
+	50% {
+		-webkit-transform: rotate(-1deg);
+		background-color: rgb(71, 165, 186);
+	}
+	66% {
+		-webkit-transform: rotate(1deg);
+	}
+	100% {
+		-webkit-transform: rotate(-1deg);
+		background-color: rgb(46, 124, 143);
+	}
+}

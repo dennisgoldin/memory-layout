@@ -7,7 +7,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
-.no_colapse {
+.no-colapse {
   width: 1050px;
   margin: 0 auto;
 }
@@ -76,15 +76,13 @@ ul li {
 }
 
 .box:hover {
-  /*box-shadow: inset 0px 0px 10px rgb(0,0,0);*/
   box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.4);
 }
 
 body {
   font-family: Orbitron, serif;
   color: #EEE;
-/* border 1px dashed #FFF;
-   text-align: center; */
+/* border 1px dashed #FFF; */
 }
 
 h1 {
@@ -110,11 +108,11 @@ a {
   text-align: center;
 }
 
-.game_bg {
+.game-bg {
   background-color: rgb(62, 78, 186);
 }
 
-.new_game_bg {
+.new-game-bg {
   background-color: rgb(71, 165, 186);
   text-align: center;
 }
@@ -122,7 +120,7 @@ a {
 .mode-button {
   padding: 1em 2em;
   text-align: center;
-  background: rgb(71, 165, 186);
+  background: rgba(71, 165, 186, 0);
   border: 3px solid #EEE;
   color: #FFF;
   text-decoration: none;
