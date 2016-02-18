@@ -87,9 +87,9 @@ input {
   transition: background 1s, -webkit-transform 1s;
 }
 
-input:checked +.card {
-  background: steelblue;
-  /*background: lightcoral;*/
+input:checked +.card {   /* checked */
+  /*background: steelblue;*/
+  background: lightcoral;
   -webkit-transform: rotateY(180deg);
 }
 
@@ -106,7 +106,7 @@ input:checked +.card {
 
 /*  Check for flip condition. If true, apply style to
     card and icon on flip. */
-input:checked +.card .card-icon {
+input:checked +.card .card-icon {   /* not checked */
   opacity: 1;
   transition-delay: 0.25s;
 }
