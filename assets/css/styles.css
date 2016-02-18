@@ -87,11 +87,18 @@ input {
   transition: background 1s, -webkit-transform 1s;
 }
 
-input:checked +.card {   /* checked */
+.flip {   /* checked */
   /*background: steelblue;*/
   background: lightcoral;
   -webkit-transform: rotateY(180deg);
 }
+
+/* Commenting out the CSS class below disables the CSS card flip */
+/*input:checked +.card {    checked */
+  /*background: steelblue;  leave commented out */
+  /*background: lightcoral;*/
+  /*-webkit-transform: rotateY(180deg);*/
+/*}*/
 
 /******************************************************
     End: Card Flip
@@ -104,17 +111,18 @@ input:checked +.card {   /* checked */
   font-size: 3em !important;
 } */
 
+.showIcon {
 /*  Check for flip condition. If true, apply style to
     card and icon on flip. */
-input:checked +.card .card-icon {   /* not checked */
-  opacity: 1;
+/* input:checked +.card .card-icon {    not checked */
+  opacity: 1 !important; /* override is required */
   transition-delay: 0.25s;
 }
 
 .card-icon {
   position: absolute;
   margin-top: 52px;
-  opacity:0;
+  opacity: 0;
   margin-left: 50px;
 }
 
