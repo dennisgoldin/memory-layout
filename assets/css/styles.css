@@ -12,8 +12,28 @@
   margin: 0 auto;
 }
 
+.modal {
+  display: none;
+}
+
+.showModal {
+  position: fixed;
+  top: 0em;
+  bottom: 0em;
+  left: 0em;
+  right: 0em;
+  display: block;
+  text-align: center;
+  padding-top: 50px;
+  background: lightcoral;
+}
+
+.matched {
+  pointer-events: none;
+}
+
 body {
-  font-family: Orbitron, serif;
+  font-family: "Orbitron", serif;
   color: #EEE;
 /* border 1px dashed #FFF; */
 }
@@ -203,7 +223,7 @@ transition-delay: 0.25s;
     ID Selectores
 ******************************************************/
 
-#hearts {
+#lives {
   float: left;
   height: 40px;
   padding-top: 20px;
@@ -211,8 +231,9 @@ transition-delay: 0.25s;
   /*border: 1px dashed #FFF;*/
 }
 
-#time {
+#timer {
   float: right;
+  width: 100px;
   height: 40px;
   margin-top: -55px;
   padding-top: 20px;
