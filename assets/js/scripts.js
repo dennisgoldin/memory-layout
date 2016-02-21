@@ -9,67 +9,64 @@ $(function () {
   var remainingLives = $(".life").length;
 
   var defaultIconPos = [];
-// console.log(defaultIconPos);
-// for (var i = 0; i < defaultIconPos.length; i++) {
-//   console.log(defaultIconPos[i]);
-// }
 
-// Make an array of all card icon class strings from the DOM
-$(".card-icon").children().each( function(index) {
-  defaultIconPos.push($(this).attr("class"));
-  console.log(index + " : " + defaultIconPos[index]);
-});
+  // Make an array of all card icon class strings from the DOM
+  $(".card-icon").children().each( function(index) {
+    defaultIconPos.push($(this).attr("class"));
+    console.log(index + " : " + defaultIconPos[index]);
+  });
 
-console.log("***********");
+  // console.log("************");
 
-// Shuffle the order of strings in the array
-var randomIconPos = shuffle(defaultIconPos);
+  // Shuffle the order of strings in the array
+  var randomIconPos = shuffle(defaultIconPos);
 
-$.each(randomIconPos, function(index, value) {
-  console.log(index + " : " + value);
-});
+  $.each(randomIconPos, function(index, value) {
+    console.log(index + " : " + value);
+  });
 
-// Update icon classes with new order via DOM
-$(".card-icon").children().each( function(index) {
-  $(this).attr("class", randomIconPos[index]);
-});
+  // Update icon classes with new order via DOM
+  $(".card-icon").children().each( function(index) {
+    $(this).attr("class", randomIconPos[index]);
+  });
 
-
-// console.log(randomIconPos);
-// for (var i = 0; i < randomIconPos.length; i++) {
-//   console.log(i + " : " + randomIconPos[i]);
-// }
-
-
-// $.each(randomIconPos, function(index, arr) {
-  // var myArr = $(".card-icon").children();
-  // console.log( $(myArr[index]).html() + " : " + $(arr).html());
-// });
-
-function shuffle(array) {
+  //  Durstenfeld Shuffle
+  //    JavaScript implementation from post #221:
+  //      http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  //    Background:
+  //      https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm
+  //
+  function shuffle(array) {
     for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
     }
     return array;
-}
+  }
 
-  // function shuffle(array) {
-  //   var currentIndex = array.length, temporaryValue, randomIndex;
-  //   // While there remain elements to shuffle...
-  //   while (0 !== currentIndex) {
-  //     // Pick a remaining element...
-  //     randomIndex = Math.floor(Math.random() * currentIndex);
-  //     currentIndex -= 1;
-  //     // And swap it with the current element.
-  //     temporaryValue = array[currentIndex];
-  //     array[currentIndex] = array[randomIndex];
-  //     array[randomIndex] = temporaryValue;
-  //   }
-  //   return array;
-  // }
+  //  Fisher-Yates (aka Knuth) Shuffle
+  //    JavaScript implementation from post #518:
+  //      http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  //    Background:
+  //      http://sedition.com/perl/javascript-fy.html
+  //      https://bost.ocks.org/mike/shuffle/
+  //
+// function shuffle(array) {
+//   var currentIndex = array.length, temporaryValue, randomIndex;
+//   // While there remain elements to shuffle...
+//   while (0 !== currentIndex) {
+//     // Pick a remaining element...
+//     randomIndex = Math.floor(Math.random() * currentIndex);
+//     currentIndex -= 1;
+//     // And swap it with the current element.
+//     temporaryValue = array[currentIndex];
+//     array[currentIndex] = array[randomIndex];
+//     array[randomIndex] = temporaryValue;
+//   }
+//   return array;
+// }
 
   // Format timer string
   function format(num) {
@@ -134,7 +131,7 @@ function shuffle(array) {
       console.log("secondCard => " + secondCard);
     } else if (firstCard != "" && secondCard != "" ) {
       console.log("**  Not a match! **");
-      // Remove a heart for a failed match attempt after 600ms
+      // Remove a heart for a failed match attempt after 600ms so cards can flip
       setTimeout( function () {
         $(".life:nth-child(" + remainingLives-- + ")").removeClass("life").removeClass("fa-heart").addClass("fa-heart-o");
       }, 600);
