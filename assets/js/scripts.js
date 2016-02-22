@@ -7,23 +7,22 @@ $(function () {
   var startTime = new Date().getTime();
   var elapsedTime = 0;
   var remainingLives = $(".life").length;
-
   var defaultIconPos = [];
+  var randomIconPos  = [];
 
   // Make an array of all card icon class strings from the DOM
   $(".card-icon").children().each( function(index) {
     defaultIconPos.push($(this).attr("class"));
-    console.log(index + " : " + defaultIconPos[index]);
+    // console.log(index + " : " + defaultIconPos[index]);
   });
 
   // console.log("************");
 
   // Shuffle the order of strings in the array
-  var randomIconPos = shuffle(defaultIconPos);
-
-  $.each(randomIconPos, function(index, value) {
-    console.log(index + " : " + value);
-  });
+  randomIconPos = shuffle(defaultIconPos);
+  // $.each(randomIconPos, function(index, value) {
+  //   console.log(index + " : " + value);
+  // });
 
   // Update icon classes with new order via DOM
   $(".card-icon").children().each( function(index) {
@@ -46,28 +45,6 @@ $(function () {
     return array;
   }
 
-  //  Fisher-Yates (aka Knuth) Shuffle
-  //    JavaScript implementation from post #518:
-  //      http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-  //    Background:
-  //      http://sedition.com/perl/javascript-fy.html
-  //      https://bost.ocks.org/mike/shuffle/
-  //
-// function shuffle(array) {
-//   var currentIndex = array.length, temporaryValue, randomIndex;
-//   // While there remain elements to shuffle...
-//   while (0 !== currentIndex) {
-//     // Pick a remaining element...
-//     randomIndex = Math.floor(Math.random() * currentIndex);
-//     currentIndex -= 1;
-//     // And swap it with the current element.
-//     temporaryValue = array[currentIndex];
-//     array[currentIndex] = array[randomIndex];
-//     array[randomIndex] = temporaryValue;
-//   }
-//   return array;
-// }
-
   // Format timer string
   function format(num) {
     if (num < 10) {
@@ -77,6 +54,11 @@ $(function () {
   }
 
   // Timer
+  //    JavaScript implementation based on posts #58 and #27:
+  //        http://stackoverflow.com/questions/2604450/how-to-create-a-jquery-clock-timer
+  //    Note: IntervalId is used to stop the timer after a win or lose.
+  //        Line 62 was modidified to fix rounding errors causing the timer to
+  //        occasionally skip a second. Also, the time is rounded 4 times a second.
   var intervalId = window.setInterval( function() {
     var totalSeconds = Math.round((new Date().getTime() - startTime) / 1000);
 
@@ -97,7 +79,7 @@ $(function () {
     $("#timer").text(elapsedTime);
   }, 250);
 
-  // Click event
+  // Click event listener
   $(".card").on("click", flip);
 
   function flip() {
@@ -111,28 +93,29 @@ $(function () {
       firstCard = $(this).children().children().attr("class");
       $(this).addClass("matchAttempt");
       $(this).addClass("justClicked");
-      console.log("firstCard => " + firstCard);
+      // console.log("firstCard => " + firstCard);
     // Set which card was clicked second during attemped match
     } else if (secondCard === "") {
       secondCard = $(this).children().children().attr("class");
       $(this).addClass("matchAttempt");
       $(this).addClass("justClicked");
-      console.log("secondCard => " + secondCard);
+      // console.log("secondCard => " + secondCard);
     }
 
     // Check for matching cards
     if (firstCard === secondCard) {
       firstCard = "";
       secondCard = "";
-      console.log("** Match! **");
+      // console.log("** Match! **");
       $(".matchAttempt").removeClass("matchAttempt").addClass("matched");
       $(".justClicked").removeClass("justClicked");
-      console.log("firstCard => " + firstCard);
-      console.log("secondCard => " + secondCard);
+      // console.log("firstCard => " + firstCard);
+      // console.log("secondCard => " + secondCard);
     } else if (firstCard != "" && secondCard != "" ) {
-      console.log("**  Not a match! **");
+      // console.log("**  Not a match! **");
       // Remove a heart for a failed match attempt after 600ms so cards can flip
       setTimeout( function () {
+        // Update number of lives
         $(".life:nth-child(" + remainingLives-- + ")").removeClass("life").removeClass("fa-heart").addClass("fa-heart-o");
       }, 600);
       firstCard = "";
@@ -144,7 +127,7 @@ $(function () {
         $(".matchAttempt").toggleClass("flip");
         $(".matchAttempt").children().toggleClass("showIcon");
         $(".matchAttempt").removeClass("matchAttempt");
-      }, 1200);
+      }, 1100);
 
     }
     console.log("** flip() **");
@@ -154,22 +137,50 @@ $(function () {
 
   // User wins game --> popup modal
   window.setInterval( function(){
-    if ( $(".matched").length === 24 ) {
+    if ( $(".matched").length === 24) { // 24
       // Pause to allow last card to finish flipping
       setTimeout( function () {
-        $(".modal").addClass("showModal");
         // Stop the timer
         window.clearInterval(intervalId);
+        $("#win").addClass("showWinModal");
         $("#elapsedTime").text(elapsedTime);
-      }, 1300);
+        $("#mistakes").text($(".fa-heart-o").length);
+        $("audio").remove();
+      }, 1100);
     }
     // User looses game --> popup modal
-    if ($(".life").length === 0) {
+    if ($(".life").length === 0) { // 0
       // Pause to allow last card to finish flipping
       setTimeout( function () {
-        $(".modal").addClass("showModal");
-      }, 1300);
+        // Stop the timer
+        window.clearInterval(intervalId);
+        $("#lose").addClass("showLoseModal");
+        $("#elapsedTime").text(elapsedTime);
+        $("audio").remove();
+      }, 1100);
     }
-  }, 333);
-
+  }, 250);
 })  // End of file.
+
+  //  Fisher-Yates (aka Knuth) Shuffle
+  //    JavaScript implementation from post #518:
+  //      http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  //    Background:
+  //      http://sedition.com/perl/javascript-fy.html
+  //      https://bost.ocks.org/mike/shuffle/
+  //    Note: Both shuffles work fine.  Decided to go with
+  //      Durstenfeld Shuffle because its theoretically more efficient
+// function shuffle(array) {
+//   var currentIndex = array.length, temporaryValue, randomIndex;
+//   // While there remain elements to shuffle...
+//   while (0 !== currentIndex) {
+//     // Pick a remaining element...
+//     randomIndex = Math.floor(Math.random() * currentIndex);
+//     currentIndex -= 1;
+//     // And swap it with the current element.
+//     temporaryValue = array[currentIndex];
+//     array[currentIndex] = array[randomIndex];
+//     array[randomIndex] = temporaryValue;
+//   }
+//   return array;
+// }

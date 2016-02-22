@@ -5,17 +5,27 @@
     <link type="text/css" rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="./assets/css/styles.css">
-    <title>Memory Game - Normal Difficulty</title>
+    <title>Memory Game - Easy Difficulty</title>
   </head>
   <body class="game-bg no-collapse">
     <header>
       <h1>Mem<i class="fa fa-lightbulb-o"></i>ry</h1>
       <ul class="header_bottom">
         <li id="lives">
-          <i class="fa fa-heart life"></i><i class="fa fa-heart life"></i><i class="fa fa-heart life"></i><i class="fa fa-heart life"></i><i class="fa fa-heart life"></i><i class="fa fa-heart life"></i><!--
-          --><i class="fa fa-heart life"></i><i class="fa fa-heart life"></i><i class="fa fa-heart life"></i><i class="fa fa-heart life"></i><i class="fa fa-heart life"></i><i class="fa fa-heart life"></i><!--
-          --><i class="fa fa-heart life"></i><!--
-     --></li>
+          <i class="fa fa-heart life"></i>
+          <i class="fa fa-heart life"></i>
+          <i class="fa fa-heart life"></i>
+          <i class="fa fa-heart life"></i>
+          <i class="fa fa-heart life"></i>
+          <i class="fa fa-heart life"></i>
+          <i class="fa fa-heart life"></i>
+          <i class="fa fa-heart life"></i>
+          <i class="fa fa-heart life"></i>
+          <i class="fa fa-heart life"></i>
+          <i class="fa fa-heart life"></i>
+          <i class="fa fa-heart life"></i>
+          <i class="fa fa-heart life"></i>
+        </li>
         <li><a href="./index.html"><div class="menu-button" id="menu">Main Menu</div></a></li>
         <li id="timer">00:00:00</li>
       </ul>
@@ -65,9 +75,7 @@
              <div class="card-icon"><i class="fa fa-camera fa-3x"></i></div>
           </label>
         </li>
-      <!-- </ul> -->
 <!-- Row 2 -->
-      <!-- <ul> -->
       <!-- Tile 7 -->
         <li class="box">
            <!-- <input type="checkbox" id="button7"> -->
@@ -110,9 +118,7 @@
              <div class="card-icon"><i class="fa fa-heart fa-3x"></i></div>
           </label>
         </li>
-      <!-- </ul> -->
 <!-- Row 3 -->
-      <!-- <ul> -->
       <!-- Tile 13 -->
         <li class="box">
            <!-- <input type="checkbox" id="button13"> -->
@@ -155,9 +161,7 @@
              <div class="card-icon"><i class="fa fa-bomb fa-3x"></i></div>
           </label>
         </li>
-      </ul>
 <!-- Row 4 -->
-      <ul>
       <!-- Tile 19 -->
         <li class="box">
            <!-- <input type="checkbox" id="button19"> -->
@@ -202,16 +206,37 @@
         </li>
       </ul>
     </section>
-    <div class="modal">Modal <br>
-      <a href="./game.html">New Game</a> <br>
-      <span id="elapsedTime">00:00:00</span>
+    <div id="lose" class="modal">
+      <h2>Whoooops!</h2>
+      <br><br>
+      <h5>** You lost **</h5>
+      <br><br><br>
+      <span class="lose-new-game-button"><a href="./index.html">Try Again</a></span>
+    </div>
+    <div id="win" class="modal">
+      <h1>Mem<i class="fa fa-lightbulb-o"></i>ry</h1>
+      <br><br>
+      <h3>You Win</h3>
+      <br><br>
+      <div class="gameData">
+        <h5>
+          Elapsed Time: &nbsp; <span id="elapsedTime"> 00:00:00 </span>
+        </h5>
+        <br>
+        <h5>
+          Mistakes: &nbsp; <span id="mistakes"> X </span>
+        </h5>
+      </div>
+      <a href="./index.html" class="win-new-game-button">New Game</a>
+      <br>
     </div>
     <footer>
-      <!-- <audio autoplay="autoplay" loop="loop" controls="controls">
-        <source src="./assets/audio/jeopardy.mp3" type="audio/mpeg"> -->
+      <audio autoplay="autoplay" loop="loop">
+      <!-- <audio autoplay="autoplay" loop="loop" controls="controls"> -->
+        <source src="./assets/audio/jeopardy.mp3" type="audio/mpeg">
         <!-- <source src="./assets/audio/knight-rider.mp3" type="audio/mpeg"> -->
         <!-- <source src="./assets/audio/sanford-and-son.mp3" type="audio/mpeg"> -->
-      <!-- </audio> -->
+      </audio>
     </footer>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

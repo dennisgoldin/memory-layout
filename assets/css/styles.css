@@ -16,16 +16,61 @@
   display: none;
 }
 
-.showModal {
+.showWinModal {
   position: fixed;
   top: 0em;
   bottom: 0em;
   left: 0em;
   right: 0em;
+  width: 100%;
+  height: 100%;
   display: block;
   text-align: center;
-  padding-top: 50px;
-  background: lightcoral;
+  padding-top: 175px;
+  background: rgb(95, 182, 98);
+}
+
+.gameData {
+  height: 80px;
+  /*border: 1px solid black;*/
+}
+
+h2 {
+  font-size: 3em;
+  color: #FFF;
+}
+
+h5 {
+  font-size: 1em;
+  color: #FFF;
+}
+
+.showLoseModal {
+  position: fixed;
+  top: 0em;
+  bottom: 0em;
+  left: 0em;
+  right: 0em;
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+  padding-top: 250px;
+  background: rgb(205, 30, 0);
+  text-align: center;
+}
+
+.win-new-game-button{
+  border: 2px solid #FFF;
+  margin-top: 50px;
+  padding: 10px 20px;
+  font-size: 1.5em;
+}
+
+.lose-new-game-button {
+  border: 2px solid #FFF;
+  padding: 10px 20px;
+  font-size: 1.5em;
 }
 
 .matched {
@@ -80,12 +125,12 @@ ul {
   display: inline-block;
   height: 150px;
   padding-left: 36px;
-  border 1px dashed #FFF;
+  /*border: 1px dashed #FFF;*/
 }
 
 ul li {
   display: block;
-  border 1px dashed #FFF;
+  /*border: 1px dashed #FFF;*/
 }
 
 /******************************************************
@@ -233,7 +278,7 @@ transition-delay: 0.25s;
 
 #timer {
   float: right;
-  width: 100px;
+  width: 65px;
   height: 40px;
   margin-top: -55px;
   padding-top: 20px;
